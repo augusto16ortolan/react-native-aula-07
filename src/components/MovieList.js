@@ -21,11 +21,6 @@ const MovieList = () => {
   return (
     <View style={styles.container}>
       <FlatList
-        ListHeaderComponent={
-          <View style={styles.listHeader}>
-            <Text style={styles.listHeaderText}>Meus filmes</Text>
-          </View>
-        }
         data={movies}
         keyExtractor={(item) => item.id}
         showsVerticalScrollIndicator={false}
