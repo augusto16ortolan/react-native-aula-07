@@ -4,14 +4,13 @@ import MovieItem from "./MovieItem";
 import MovieModal from "./MovieModal";
 import { movies } from "../../movies";
 
-const MovieList = () => {
+const MovieList = ({ navigate }) => {
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [modalVisivel, setModalVisivel] = useState(false);
 
-  const handlePress = (movie) => {
-    setSelectedMovie(movie);
-    setModalVisivel(true);
-  };
+  function irParaDetalhes(movie) {
+    navigate.navigate("Detalhes", { movie });
+  }
 
   const handleCloseModal = () => {
     setSelectedMovie(null);
@@ -29,7 +28,7 @@ const MovieList = () => {
             title={item.title}
             year={item.year}
             poster={item.poster}
-            onPress={() => handlePress(item)}
+            onPress={() => irParaDetalhes(item)}
           />
         )}
       />
