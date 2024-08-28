@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, SafeAreaView, StyleSheet } from "react-native";
+import { Alert, TouchableOpacity } from "react-native";
 import MovieList from "./src/components/MovieList";
 import { StatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Filmes from "./src/pages/Filmes";
 import Detalhes from "./src/pages/Detalhes";
 import Teste from "./src/pages/Teste";
+import { Ionicons } from "@expo/vector-icons";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,11 @@ const App = () => {
           options={{
             headerTitle: "Meus filmes",
             headerTitleAlign: "center",
+            headerRight: () => (
+              <TouchableOpacity onPress={() => Alert.alert("Teste")}>
+                <Ionicons name="exit" size={25} color="white" />
+              </TouchableOpacity>
+            ),
           }}
         />
         <Stack.Screen
